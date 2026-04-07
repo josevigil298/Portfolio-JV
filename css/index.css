@@ -1,0 +1,14 @@
+/* Dot Between Logo and Profession */
+.profession::before{
+    content: "\00B7";  /*Middle Dot */
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+body{
+    padding-top: 80px;
+}
+
+*{
+    outline: 1px solid red;
+}
