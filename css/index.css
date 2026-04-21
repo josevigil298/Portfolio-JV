@@ -1,12 +1,11 @@
 /* Dot Between Logo and Profession */
 :root{
-    --bg: #2f3e46;
-    --card: #354f52;
-    --primary: #84a98c;
-    --secondary: #52796f;
-    --soft: #cad2c5;
+    --bg: #ffffff;
+    --card: #ffffff;
+    --primary: #000000;
+    --secondary: #000000;
+    --soft: #000000;
 }
-
 
 .profession::before{
     content: "\00B7";  /*Middle Dot */
@@ -19,47 +18,70 @@ body{
 }
 
 .navbar{
-    background-color: var(--bg);
-
+    background-color: #ffffff;
 }
 
 .navbar .nav-link,
 .navbar .navbar-brand {
-    color: #cad2c5; /* Ash Grey from your palette */
+    color: #000000;
 }
 
 .nav-link:hover,
 .navbar .navbar-brand:hover {
-    color: var(--primary); /* Light Green from your palette */
+    color: #000000;
 }
 
 #hero{
-    background-color: var(--bg);
-    color: var(--soft);
+    background-color: #ffffff;
+    color: #000000;
     padding: 100px 0;
 }
 
+.view-work a,
+.view-contact a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
 #skills{
-    background-color: var(--card);
-    color: var(--soft);
+    background-color: #ffffff;
+    color: #000000;
     padding: 30px 0;
 }
 
 #projects{
-    background-color: var(--bg);
-    color: var(--soft);
+    background-color: #ffffff;
+    color: #000000;
     padding: 30px 0;
 }
 
+/* Project Cards */
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Optional: keeps cards looking cleaner without forcing image crop */
+.card {
+  height: auto;
+}
+
 #about{
-    background-color: var(--card);
-    color: var(--soft);
+    background-color: #ffffff;
+    color: #000000;
     padding: 30px 0;
 }
 
 #contact{
-    background-color: var(--bg);
-    color: var(--soft);
+    background-color: #ffffff;
+    color: #000000;
     padding: 30px 0;
 }
 
