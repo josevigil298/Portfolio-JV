@@ -1,98 +1,580 @@
-/* Dot Between Logo and Profession */
-:root{
-    --bg: #ffffff;
-    --card: #ffffff;
-    --primary: #000000;
-    --secondary: #000000;
-    --soft: #000000;
+/* =============================================
+   Jose Vigil Portfolio — index.css
+   Palette: Forest / Teal Dark Theme
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap');
+
+/* =============================================
+   CSS Variables
+   ============================================= */
+
+:root {
+  --ash-grey:        #cad2c5;
+  --muted-teal:      #84a98c;
+  --deep-teal:       #52796f;
+  --dark-slate-grey: #354f52;
+  --charcoal-blue:   #2f3e46;
+
+  /* Derived tokens */
+  --bg-base:         #0b1a1e;
+  --bg-surface:      #0f2228;
+  --bg-card:         #112630;
+  --bg-input:        #0d1e23;
+
+  --border-subtle:   rgba(82, 121, 111, 0.2);
+  --border-medium:   rgba(82, 121, 111, 0.4);
+  --border-strong:   rgba(132, 169, 140, 0.5);
+
+  --text-primary:    #e8ede6;
+  --text-secondary:  #8aac96;
+  --text-muted:      #4d7060;
+  --text-ash:        var(--ash-grey);
+
+  --font-display:    'DM Serif Display', Georgia, serif;
+  --font-body:       'DM Sans', system-ui, sans-serif;
+
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-pill: 999px;
+
+  --transition: 0.2s ease;
 }
 
-.profession::before{
-    content: "\00B7";  /*Middle Dot */
-    margin: 0 10px;
-    font-weight: bold;
+/* =============================================
+   Reset & Base
+   ============================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-body{
-    padding-top: 55px;
+html {
+  scroll-behavior: smooth;
 }
 
-.navbar{
-    background-color: #ffffff;
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
-.navbar .nav-link,
+/* =============================================
+   Navbar
+   ============================================= */
+
+.navbar {
+  background: rgba(11, 26, 30, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 64px;
+}
+
 .navbar .navbar-brand {
-    color: #000000;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.01em;
 }
 
-.nav-link:hover,
 .navbar .navbar-brand:hover {
-    color: #000000;
+  color: var(--ash-grey);
 }
 
-#hero{
-    background-color: #ffffff;
-    color: #000000;
-    padding: 100px 0;
+/* Dot between name and profession */
+.profession::before {
+  content: "\00B7";
+  margin: 0 8px;
+  color: var(--muted-teal);
+  font-weight: 700;
 }
 
-.view-work a,
-.view-contact a {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #000000;
-    background-color: #ffffff;
-    border-radius: 5px;
+.navbar .navbar-brand .profession {
+  color: var(--text-secondary);
+  font-weight: 300;
 }
 
-.hero-img {
-    max-width: 500px;
+.navbar .nav-link {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  transition: color var(--transition);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--ash-grey);
+}
+
+/* Mobile toggler */
+.navbar-toggler {
+  border-color: var(--border-medium);
+}
+
+.navbar-toggler-icon {
+  filter: invert(80%) sepia(10%) saturate(400%) hue-rotate(100deg);
+}
+
+.navbar-collapse {
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+@media (max-width: 767px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 64px;
+    left: 0;
     width: 100%;
-    height: auto;
-    border-radius: 50% 25% 50% 25%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    background: rgba(11, 26, 30, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 1rem;
+    border-top: 1px solid var(--border-subtle);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+
+    z-index: 999;
+  }
 }
 
-#skills{
-    background-color: #ffffff;
-    color: #000000;
-    padding: 30px 0;
+/* =============================================
+   Section Shared
+   ============================================= */
+
+section {
+  padding: 80px 0;
 }
 
-#projects{
-    background-color: #ffffff;
-    color: #000000;
-    padding: 30px 0;
+.section-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-teal);
+  margin-bottom: 12px;
 }
 
-/* Project Cards */
+h2 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--text-ash);
+  line-height: 1.15;
+  margin-bottom: 48px;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text-ash);
+  margin-bottom: 16px;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* =============================================
+   Hero Section
+   ============================================= */
+
+#hero {
+  background-color: var(--bg-base);
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background texture */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(82, 121, 111, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(53, 79, 82, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+#hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.hero-role {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-teal);
+  margin-bottom: 20px;
+}
+
+.hero-tagline {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 32px;
+}
+
+/* Hero Buttons */
+.view-work,
+.view-contact {
+  display: inline-block;
+  min-width: 160px;
+  padding: 12px 24px;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: all var(--transition);
+  margin-top: 0;
+}
+
+.view-work {
+  background-color: var(--muted-teal);
+  color: #fff;
+  border: 1.5px solid var(--muted-teal);
+}
+
+.view-work:hover {
+  background-color: var(--deep-teal);
+  border-color: var(--deep-teal);
+  color: #fff;
+}
+
+.view-contact {
+  background-color: transparent;
+  color: var(--ash-grey);
+  border: 1.5px solid var(--border-medium);
+}
+
+.view-contact:hover {
+  background-color: rgba(202, 210, 197, 0.07);
+  border-color: var(--border-strong);
+  color: var(--ash-grey);
+}
+
+/* Hero Image */
+.hero-img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 50% 25% 50% 25%;
+  border: 2px solid var(--border-medium);
+  filter: brightness(0.9) saturate(0.85);
+  transition: filter var(--transition);
+}
+
+.hero-img:hover {
+  filter: brightness(1) saturate(1);
+}
+
+/* =============================================
+   Skills Section
+   ============================================= */
+
+#skills {
+  background-color: var(--bg-surface);
+  padding: 60px 0;
+}
+
+#skills h2 {
+  margin-bottom: 32px;
+}
+
+/* Restyle skill icons as pills — add class="skill-pill" to each <li> */
+.technical_skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.technical_skills li {
+  /* Override existing flex-column layout */
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px;
+
+  background: rgba(82, 121, 111, 0.1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 10px 20px;
+  transition: background var(--transition), border-color var(--transition);
+  cursor: default;
+}
+
+.technical_skills li:hover {
+  background: rgba(82, 121, 111, 0.18);
+  border-color: var(--border-medium);
+}
+
+.technical_skills li .fa-brands {
+  font-size: 1.1rem !important;
+  color: var(--muted-teal);
+  margin-bottom: 0 !important;
+}
+
+/* The <i> tag has fa-5x — override it */
+.technical_skills .fa-5x {
+  font-size: 1.2rem !important;
+}
+
+.technical_skills li span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ash-grey);
+  letter-spacing: 0.03em;
+}
+
+/* =============================================
+   Projects Section
+   ============================================= */
+
+#projects {
+  background-color: var(--bg-base);
+  padding: 80px 0;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: none;
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+  height: auto;
+}
+
+.card:hover {
+  border-left-color: var(--muted-teal);
+  transform: translateY(-3px);
+}
 
 .card-img-top {
   width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
+  filter: brightness(0.88) saturate(0.8);
+  transition: filter var(--transition);
 }
 
-/* Optional: keeps cards looking cleaner without forcing image crop */
-.card {
-  height: auto;
+.card:hover .card-img-top {
+  filter: brightness(1) saturate(1);
 }
 
-#about{
-    background-color: #ffffff;
-    color: #000000;
-    padding: 30px 0;
+.card-body {
+  padding: 20px;
 }
 
-#contact{
-    background-color: #ffffff;
-    color: #000000;
-    padding: 30px 0;
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text-ash);
+  margin-bottom: 6px;
 }
 
-/* *{
-    outline: 1px solid red;
-} */
+.card-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =============================================
+   About Section
+   ============================================= */
+
+#about {
+  background-color: var(--bg-surface);
+  padding: 80px 0;
+}
+
+#about p {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* =============================================
+   Contact Section
+   ============================================= */
+
+#contact {
+  background-color: var(--bg-base);
+  padding: 80px 0;
+}
+
+#contact h2 {
+  color: var(--text-ash);
+}
+
+#contact h4 {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* Form inputs */
+#contact .form-control {
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 16px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+#contact .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+#contact .form-control:focus {
+  background-color: var(--bg-input);
+  border-color: var(--deep-teal);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 3px rgba(82, 121, 111, 0.15);
+  outline: none;
+}
+
+/* Submit button */
+#contact .btn-primary {
+  background-color: var(--muted-teal);
+  border: 1.5px solid var(--muted-teal);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+#contact .btn-primary:hover,
+#contact .btn-primary:focus {
+  background-color: var(--deep-teal);
+  border-color: var(--deep-teal);
+  box-shadow: none;
+}
+
+/* Social links */
+#contact a.text-decoration-none {
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition: color var(--transition);
+}
+
+#contact a.text-decoration-none .fa-brands {
+  color: var(--deep-teal);
+  transition: color var(--transition);
+}
+
+#contact a.text-decoration-none:hover {
+  color: var(--ash-grey);
+}
+
+#contact a.text-decoration-none:hover .fa-brands {
+  color: var(--muted-teal);
+}
+
+/* =============================================
+   Footer
+   ============================================= */
+
+footer {
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 20px 0;
+}
+
+/* =============================================
+   Utility: Section divider lines
+   ============================================= */
+
+.section-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0;
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 1.9rem;
+  }
+
+  #hero {
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+
+  .hero-tagline {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-img {
+    max-width: 260px;
+  }
+
+  .technical_skills {
+    justify-content: center;
+  }
+
+  .view-work,
+  .view-contact {
+    min-width: 140px;
+    padding: 11px 18px;
+  }
+}
+
+/* =============================================
+   Debug (uncomment to inspect layout)
+   ============================================= */
+
+/* * { outline: 1px solid rgba(255, 0, 0, 0.15); } */
